@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Nice grape</string>
+    <string name="intro_description">칭찬 포도알스티커를 적립해주세요</string>
+    <string name="intro_welcome">\u0020네 착한 포도나무</string>
+    <string name="intro_enter"> 놀러가기 </string>
+    <string name="main_purpose"> 나이키 신발 </string>
+
 </resources>
