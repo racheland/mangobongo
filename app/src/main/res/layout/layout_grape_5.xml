@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="97dp"
+            android:layout_marginLeft="97dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/grapeleaf" />
+
+        <RelativeLayout
+            android:layout_width="237dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="78dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="22dp"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/grape_basic_1" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="74dp"
+                android:layout_marginLeft="74dp"
+                android:layout_marginBottom="-59dp"
+                android:src="@drawable/grape_basic_1" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="238dp"
+            android:layout_height="62dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="127dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="83dp"
+                android:src="@drawable/grape_basic_1" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/grape_basic_1" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="77dp"
+            android:layout_marginLeft="77dp"
+            android:layout_marginTop="177dp"
+            android:src="@drawable/grape_basic_1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
