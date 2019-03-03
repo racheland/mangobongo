@@ -44,7 +44,7 @@
         android:background="@color/colorPrimary"/>
 
     <include
-        layout="@layout/layout_grape_10"
+        layout="@layout/layout_grape_20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

@@ -9,7 +9,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -67,7 +69,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="83dp"
-                android:src="@drawable/grape_basic_1" />
+                android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="83dp" />
 
             <ImageView
                 android:layout_width="70dp"
@@ -75,7 +78,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="42dp"
                 android:layout_marginBottom="0dp"
-                android:src="@drawable/grape_basic_1" />
+                android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="42dp" />
         </RelativeLayout>
 
         <ImageView

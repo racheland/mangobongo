@@ -86,21 +86,24 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="42dp"
-                android:src="@drawable/grape_basic_1" />
+                android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="42dp" />
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="83dp"
-                android:src="@drawable/grape_basic_1" />
+                android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="83dp" />
 
             <ImageView
               android:layout_width="50dp"
               android:layout_height="50dp"
               android:layout_alignParentBottom="true"
               android:layout_marginStart="125dp"
-              android:src="@drawable/grape_basic_1" />
+              android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="125dp" />
 
         </RelativeLayout>
 
@@ -128,7 +131,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="100dp"
                 android:layout_marginBottom="0dp"
-                android:src="@drawable/grape_basic_1" />
+                android:src="@drawable/grape_basic_1"
+                android:layout_marginLeft="100dp" />
         </RelativeLayout>
 
         <ImageView
