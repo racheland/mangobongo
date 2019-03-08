@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -24,8 +24,6 @@
             android:layout_width="180dp"
             android:background="@android:color/black"
             android:layout_height="1dp"/>
-
-
     </RelativeLayout>
 
     <Button
@@ -37,18 +35,48 @@
         android:layout_marginTop="5dp"
         android:id="@+id/main_menu"/>
 
-    <View
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"/>
+    <TextView
+        android:id="@+id/left_arrow"
+        android:text="@string/left_arrow"
+        android:textSize="80dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <include
-        layout="@layout/layout_grape_20"
+    <TextView
+        android:id="@+id/right_arrow"
+        android:text="@string/right_arrow"
+        android:textSize="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="400dp" />
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/page_indicator"
+        android:layout_above="@id/banner_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/add_grape" />
+        android:layout_marginBottom="40dp"
+        android:layout_centerInParent="true"
+        app:piv_animationType="scale"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_selectedColor="@android:color/holo_red_light"
+        app:piv_unselectedColor="@android:color/darker_gray"
+        app:piv_viewPager="@id/view_pager"
+        attrs:piv_padding="12dp"
+        attrs:piv_radius="8dp" />
 
     <ImageView
         android:layout_width="60dp"
@@ -69,5 +97,12 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
         android:id="@+id/add_grape"/>
+
+    <View
+        android:id="@+id/banner_view"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"/>
 
 </RelativeLayout>
