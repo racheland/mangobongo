@@ -20,6 +20,6 @@ public class SettingActivity extends Activity {
     }
 
     public void onClickGrapeTitle (View view) {
-        Intent intent = new Intent(SettingActivity.this,)
+//        Intent intent = new Intent(SettingActivity.this,)
     }
 }
