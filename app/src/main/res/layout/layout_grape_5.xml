@@ -20,9 +20,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="97dp"
+            android:layout_marginStart="110dp"
             android:layout_marginLeft="97dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/grapeleaf" />
 
         <RelativeLayout
@@ -32,6 +32,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="7dp"
+            android:gravity="center"
             android:layout_marginLeft="7dp"
             android:layout_marginTop="78dp">
 
@@ -40,8 +41,6 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="22dp"
-                android:layout_marginLeft="22dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
@@ -49,8 +48,7 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="74dp"
-                android:layout_marginLeft="74dp"
+                android:layout_marginStart="58dp"
                 android:layout_marginBottom="-59dp"
                 android:src="@drawable/grape_basic_1" />
 
@@ -62,6 +60,7 @@
             android:layout_height="62dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:gravity="center"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="127dp">
 
@@ -69,8 +68,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="83dp"
-                android:layout_marginLeft="83dp"
+                android:layout_marginStart="3dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView

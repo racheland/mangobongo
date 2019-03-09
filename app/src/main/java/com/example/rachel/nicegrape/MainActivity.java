@@ -17,11 +17,8 @@ import android.widget.TextView;
 import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
+import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
-import com.github.omadahealth.lollipin.lib.PinActivity;
-import com.github.omadahealth.lollipin.lib.managers.AppLock;
-import com.github.omadahealth.lollipin.lib.managers.AppLockActivity;
-import com.github.omadahealth.lollipin.lib.managers.LockManager;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
@@ -103,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setPageTransformer(false, new FadePageTransformer());
         stickerAddView.setOnTouchListener(new DragTouchListener());
     }
+
+    public void onClickSettingButton (View view) {
+        Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+        startActivity(intent);
+    }
+
 
     private void onPageSelected(int position) {
         pageIndicatorView.setSelection(position);

@@ -33,7 +33,9 @@
         android:layout_height="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:id="@+id/main_menu"/>
+        android:onClick="onClickSettingButton"
+        android:id="@+id/main_menu"
+        />
 
     <TextView
         android:id="@+id/left_arrow"
