@@ -1,5 +1,6 @@
 package com.example.rachel.nicegrape;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
+import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.rd.PageIndicatorView;
 
@@ -81,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
 
         onPageSelected(0);
     }
+
+    public void onClickSettingButton (View view) {
+        Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+        startActivity(intent);
+    }
+
 
     private void onPageSelected(int position) {
         pageIndicatorView.setSelection(position);

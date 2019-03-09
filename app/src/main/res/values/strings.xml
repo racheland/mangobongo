@@ -4,7 +4,14 @@
     <string name="intro_welcome">\u0020네 착한 포도나무</string>
     <string name="intro_enter"> 놀러가기 </string>
     <string name="main_purpose"> 나이키 신발 </string>
+    <string name="setting_title">\u0020설 정 </string>
+    <string name="grape_title"> 스티커판 제목 설정 </string>
+    <string name="grape_calender"> 포도알 캘린더  </string>
+    <string name="grape_pw"> 비밀번호 설정  </string>
+    <string name="open_license"> 오픈 라이선스  </string>
     <string name="left_arrow"><![CDATA[<]]></string>
     <string name="right_arrow"><![CDATA[>]]></string>
+
+
 
 </resources>
