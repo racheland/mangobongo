@@ -35,5 +35,17 @@ dependencies {
         exclude group: 'com.android.support', module: 'recyclerview'
         exclude group: 'com.android.support', module: 'transition'
     }
+
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
+
+    //pin library
+    implementation project(':pinLib')
+
+    //viewPager indicator
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
+
+    implementation 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
+
 }
