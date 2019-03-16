@@ -19,6 +19,7 @@ import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
 import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
+import com.example.rachel.nicegrape.util.TitleNameDialog;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
@@ -103,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
 //        intent.putExtra(AppLock.EXTRA_TYPE, AppLock.UNLOCK_PIN);
 //        startActivityForResult(intent, REQUEST_CODE_ENABLE);
 
-        viewPager.setPageTransformer(false, new FadePageTransformer());
-        stickerAddView.setOnTouchListener(new DragTouchListener());
     }
 
     public void onClickSettingButton (View view) {

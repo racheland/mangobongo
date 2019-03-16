@@ -11,6 +11,12 @@
     <string name="open_license"> 오픈 라이선스  </string>
     <string name="left_arrow"><![CDATA[<]]></string>
     <string name="right_arrow"><![CDATA[>]]></string>
+    <string name="user_name">누구의 포도나무 인가요?</string>
+    <string name="naming">이름을 입력하세요</string>
+    <string name="cancel">취 소</string>
+    <string name="confirm">확 인</string>
+    <string name="add_grape">칭찬 포도를 추가하세요</string>
+    <string name="num_grape">포도알 갯수</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
