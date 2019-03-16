@@ -5,6 +5,7 @@
     android:layout_centerInParent="true">
 
     <RelativeLayout
+        android:id="@+id/grape_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -15,6 +16,7 @@
         android:layout_marginTop="0dp">
 
         <ImageView
+            android:id="@+id/grape_leaf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

@@ -22,6 +22,7 @@ import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,24 +55,29 @@ public class MainActivity extends AppCompatActivity {
         grapeList = new ArrayList<>();
 
         grapeList.add(new Grape("나이키 신발", new ArrayList<Sticker>(){{
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
         }}));
 
         grapeList.add(new Grape("미니카", new ArrayList<Sticker>(){{
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
-            add(new Sticker(false));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
+            add(new Sticker(false, "test", new Date()));
         }}));
 
 
@@ -106,6 +112,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickArrow(View view) {
+        int position = viewPager.getCurrentItem();
+
+        //왼쪽 화살표 클릭
+        if (view.getId() == R.id.left_arrow) {
+            viewPager.setCurrentItem(Math.max(0, position - 1));
+            //오른쪽 화살표 클릭
+        } else {
+            viewPager.setCurrentItem(Math.max(viewPager.getChildCount(), position + 1));
+        }
+    }
 
     private void onPageSelected(int position) {
         pageIndicatorView.setSelection(position);
@@ -136,41 +153,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 return false;
             }
-        }
-    }
-
-    class MyDragListener implements View.OnDragListener {
-        Drawable enterShape = getResources().getDrawable(R.drawable.grape_1);
-        Drawable normalShape = getResources().getDrawable(R.drawable.grape_basic_1);
-
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            int action = event.getAction();
-            switch (event.getAction()) {
-                case DragEvent.ACTION_DRAG_STARTED:
-                    // do nothing
-                    break;
-                case DragEvent.ACTION_DRAG_ENTERED:
-                    v.setBackgroundDrawable(enterShape);
-                    break;
-                case DragEvent.ACTION_DRAG_EXITED:
-                    v.setBackgroundDrawable(normalShape);
-                    break;
-                case DragEvent.ACTION_DROP:
-                    // Dropped, reassign View to ViewGroup
-                    View view = (View) event.getLocalState();
-                    ViewGroup owner = (ViewGroup) view.getParent();
-                    owner.removeView(view);
-                    LinearLayout container = (LinearLayout) v;
-                    container.addView(view);
-                    view.setVisibility(View.VISIBLE);
-                    break;
-                case DragEvent.ACTION_DRAG_ENDED:
-                    v.setBackgroundDrawable(normalShape);
-                default:
-                    break;
-            }
-            return true;
         }
     }
 
