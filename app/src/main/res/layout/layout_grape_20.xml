@@ -6,8 +6,8 @@
 
     <RelativeLayout
         android:id="@+id/grape_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="218dp"
+        android:layout_height="351dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp">
 
@@ -127,11 +127,8 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="29dp"
-                android:layout_marginRight="29dp"
+                android:layout_marginLeft="129dp"
                 android:layout_marginBottom="0dp"
                 android:src="@drawable/grape_basic_1" />
 
@@ -179,11 +176,8 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="42dp"
-                android:layout_marginRight="42dp"
+                android:layout_marginLeft="150dp"
                 android:layout_marginBottom="1dp"
                 android:src="@drawable/grape_basic_1" />
 
@@ -230,11 +224,8 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="53dp"
-                android:layout_marginRight="53dp"
+                android:layout_marginLeft="148dp"
                 android:layout_marginBottom="2dp"
                 android:src="@drawable/grape_basic_1" />
 

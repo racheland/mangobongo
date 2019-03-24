@@ -1,6 +1,7 @@
 package com.example.rachel.nicegrape;
 
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -11,6 +12,7 @@ import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
+import com.example.rachel.nicegrape.util.NumGrapeDialog;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
@@ -120,6 +122,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onClickAddGrape (View view) {
+        NumGrapeDialog numGrapeDialog = new NumGrapeDialog();
+        numGrapeDialog.getBuilder(this).setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        numGrapeDialog.show(getSupportFragmentManager(), "NumGrapeDialog");
+    }
+
+
     private void onPageSelected(int position) {
         pageIndicatorView.setSelection(position);
 
@@ -165,7 +179,10 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (position == 0) {
                 view.setAlpha(1);
+
             }
         }
     }
+
+
 }

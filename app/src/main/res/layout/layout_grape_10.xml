@@ -6,8 +6,8 @@
 
     <RelativeLayout
         android:id="@+id/grape_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="221dp"
+        android:layout_height="268dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp">
 
@@ -29,8 +29,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="7dp"
-            android:layout_marginLeft="7dp"
             android:layout_marginTop="78dp">
 
             <ImageView
@@ -81,7 +79,6 @@
             android:layout_height="62dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="3dp"
             android:layout_marginTop="115dp">
 
             <ImageView

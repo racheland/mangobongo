@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider_line"
+    android:dividerPadding="2.5dp"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/back_button"
+            android:onClick="onClickBackMain"/>
+
+        <TextView
+            android:id="@+id/grape_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/grape_calender"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <xyz.sangcomz.stickytimelineview.TimeLineRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

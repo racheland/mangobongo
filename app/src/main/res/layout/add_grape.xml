@@ -9,7 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="center"
+        android:textSize="20dp"
         android:text="@string/add_grape" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:text="@string/grape_name" />
+
+    <EditText
+        android:id="@+id/grape_name"
+        android:inputType="textEmailSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif"
+        android:hint="나이키 신발"/>
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,10 +37,11 @@
     android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp"
+    android:padding="15dp"
     tools:context=".MainActivity"
     android:background="#ffffff"
     >
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
@@ -31,7 +52,7 @@
     <NumberPicker
         android:id="@+id/number_picker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_below="@id/tv"
         />
 </RelativeLayout>

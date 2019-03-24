@@ -100,6 +100,7 @@
         android:layout_marginBottom="70dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
+        android:onClick="onClickAddGrape"
         android:id="@+id/add_grape"/>
 
     <View

@@ -47,16 +47,6 @@ public class SplashActivity extends AppCompatActivity {
         PreferenceHelper.writeData(IS_FIRST_RUN, INITIAL_VALUE, this);
 
 
-        NumGrapeDialog numGrapeDialog = new NumGrapeDialog();
-        numGrapeDialog.getBuilder(this).setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        numGrapeDialog.show(getSupportFragmentManager(), "NumGrapeDialog");
-
     }
 
 

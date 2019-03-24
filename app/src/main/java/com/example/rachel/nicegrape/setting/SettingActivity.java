@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.rachel.nicegrape.MainActivity;
 import com.example.rachel.nicegrape.R;
 
 public class SettingActivity extends Activity {
@@ -20,6 +18,7 @@ public class SettingActivity extends Activity {
     }
 
     public void onClickGrapeTitle (View view) {
-//        Intent intent = new Intent(SettingActivity.this,)
+        Intent intent = new Intent(SettingActivity.this, SettingTitleActivity.class);
+        startActivity(intent);
     }
 }
