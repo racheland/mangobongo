@@ -48,4 +48,7 @@ dependencies {
 
     implementation 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
 
+    //for timeline
+    implementation 'com.github.sangcomz:StickyTimeLine:v0.0.20'
+
 }

@@ -7,11 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.github.omadahealth.lollipin.lib.interfaces.LifeCycleInterface;
 import com.github.omadahealth.lollipin.lib.managers.AppLockActivity;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 /**
  * Created by stoyan and olivier on 1/12/15.

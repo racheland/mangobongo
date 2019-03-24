@@ -1,16 +1,16 @@
 package com.example.rachel.nicegrape;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.rachel.nicegrape.util.NumGrapeDialog;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -2,21 +2,13 @@ package com.example.rachel.nicegrape;
 
 import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
-import com.example.rachel.nicegrape.pin.CustomPinActivity;
 import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.rd.PageIndicatorView;
@@ -24,6 +16,10 @@ import com.rd.PageIndicatorView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
