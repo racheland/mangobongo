@@ -53,29 +53,27 @@ public class MainActivity extends AppCompatActivity {
         grapeList = new ArrayList<>();
 
         grapeList.add(new Grape("나이키 신발", new ArrayList<Sticker>(){{
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
+            for (int i=0; i<3; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
+            }
+            for (int i=0; i<3; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
+            }
+            for (int i=0; i<4; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
+            }
         }}));
 
         grapeList.add(new Grape("미니카", new ArrayList<Sticker>(){{
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
-            add(new Sticker(false, "test", new Date()));
+            for (int i=0; i<3; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
+            }
+            for (int i=0; i<3; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
+            }
+            for (int i=0; i<4; i++) {
+                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
+            }
         }}));
 
 

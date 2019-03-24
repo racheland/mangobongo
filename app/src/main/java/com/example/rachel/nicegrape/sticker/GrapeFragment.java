@@ -1,6 +1,7 @@
 package com.example.rachel.nicegrape.sticker;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -8,12 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 
+import com.example.rachel.nicegrape.GrapeTimelineActivity;
 import com.example.rachel.nicegrape.R;
+import com.example.rachel.nicegrape.model.Sticker;
 
-import java.util.concurrent.Callable;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,9 +30,13 @@ public class GrapeFragment extends Fragment {
     public static final int GRAPE_TYPE_10 = 10;
     public static final int GRAPE_TYPE_20 = 20;
     public static final int GRAPE_TYPE_30 = 30;
+
+    private ArrayList<Sticker> stickerList;
     private int grapeCount;
-    public GrapeFragment(int grapeCount) {
-        this.grapeCount = grapeCount;
+
+    public GrapeFragment(ArrayList<Sticker> stickerList) {
+        this.grapeCount = stickerList.size();
+        this.stickerList = stickerList;
     }
 
     @Nullable
@@ -55,14 +63,25 @@ public class GrapeFragment extends Fragment {
 
         RelativeLayout parent = view.findViewById(R.id.grape_container);
         recursiveLoopChildren(parent, new GenericRunnable<View>() {
+            int index = 0;
             @Override
             public void run(final View view) {
                 view.post(new Runnable() {
                     @Override
                     public void run() {
                         if (view.getId() != R.id.grape_leaf) {
+                            view.setTag(stickerList.get(index++));
                             view.setOnDragListener(new DragListener());
                         }
+                    }
+                });
+
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), GrapeTimelineActivity.class);
+                        intent.putParcelableArrayListExtra(GrapeTimelineActivity.KEY_STICKER_LIST, stickerList);
+                        startActivity(intent);
                     }
                 });
             }
@@ -94,6 +113,11 @@ public class GrapeFragment extends Fragment {
 
         @Override
         public boolean onDrag(View v, DragEvent event) {
+            Sticker sticker = ((Sticker)v.getTag());
+            if (sticker.isActivate()) {
+                return true;
+            }
+
             switch (event.getAction()) {
                 case DragEvent.ACTION_DRAG_STARTED:
                     // do nothing
@@ -106,6 +130,7 @@ public class GrapeFragment extends Fragment {
                     break;
                 case DragEvent.ACTION_DROP:
                     ((ImageView)v).setImageDrawable(enterShape);
+                    sticker.setActivate(true);
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     break;

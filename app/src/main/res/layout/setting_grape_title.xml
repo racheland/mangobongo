@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:paddingLeft="45dp"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ddddddddddddddddddddd"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:paddingLeft="10dp"
-        android:src="@drawable/edit"/>
+        <TextView
+            android:id="@+id/content"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ddddddddddddddddddddd" />
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:paddingLeft="5dp"
-        android:src="@drawable/trashcan"/>
+        <ImageView
+            android:layout_toLeftOf="@id/delete"
+            android:id="@+id/edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingLeft="10dp"
+            android:src="@drawable/edit"/>
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="5dp"
+            android:src="@drawable/trashcan" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,12 +1,13 @@
 package com.example.rachel.nicegrape.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grape {
     private String title;
-    private List<Sticker> stickerList;
+    private ArrayList<Sticker> stickerList;
 
-    public Grape(String title, List<Sticker> stickerList) {
+    public Grape(String title, ArrayList<Sticker> stickerList) {
         this.title = title;
         this.stickerList = stickerList;
     }
@@ -19,11 +20,11 @@ public class Grape {
         this.title = title;
     }
 
-    public List<Sticker> getStickerList() {
+    public ArrayList<Sticker> getStickerList() {
         return stickerList;
     }
 
-    public void setStickerList(List<Sticker> stickerList) {
+    public void setStickerList(ArrayList<Sticker> stickerList) {
         this.stickerList = stickerList;
     }
 }
