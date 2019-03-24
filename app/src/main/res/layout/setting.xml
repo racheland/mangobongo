@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:text="@string/grape_calender"
         android:textSize="25dp"
-        android:paddingLeft="20dp"/>
-
+        android:paddingLeft="20dp"
+        android:onClick="onClickGrapeCalendar"/>
 
     <TextView
         android:id="@+id/grape_pw"
@@ -60,7 +60,8 @@
         android:layout_height="wrap_content"
         android:text="@string/open_license"
         android:paddingLeft="20dp"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:onClick="onClickOpenLicense"/>
 
     <View
         android:layout_width="wrap_content"

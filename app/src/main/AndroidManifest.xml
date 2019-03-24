@@ -21,6 +21,8 @@
         <activity android:name=".setting.SettingActivity"/>
         <activity android:name=".setting.SettingTitleActivity"/>
         <activity android:name=".pin.CustomPinActivity"/>
+        <activity android:name=".setting.SettingCalendar"/>
+        <activity android:name=".setting.SettingOpenLicense"/>
 
     </application>
 

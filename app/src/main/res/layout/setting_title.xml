@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
     <ImageView
+        android:onClick="onClickBackSetting"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:src="@drawable/back_button" />

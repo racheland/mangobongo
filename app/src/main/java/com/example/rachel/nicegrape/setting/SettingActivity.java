@@ -21,4 +21,16 @@ public class SettingActivity extends Activity {
         Intent intent = new Intent(SettingActivity.this, SettingTitleActivity.class);
         startActivity(intent);
     }
+
+    public void onClickGrapeCalendar (View view) {
+        Intent intent = new Intent( SettingActivity.this, SettingCalendar.class);
+        startActivity(intent);
+    }
+
+    public void onClickOpenLicense (View view) {
+        Intent intent = new Intent( SettingActivity.this, SettingOpenLicense.class);
+        startActivity(intent);
+    }
+
+
 }

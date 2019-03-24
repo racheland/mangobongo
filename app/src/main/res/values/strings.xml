@@ -8,7 +8,7 @@
     <string name="grape_title"> 스티커판 제목 설정 </string>
     <string name="grape_calender"> 포도알 캘린더  </string>
     <string name="grape_pw"> 비밀번호 설정  </string>
-    <string name="open_license"> 오픈 라이선스  </string>
+    <string name="open_license"> 오픈소스 라이선스  </string>
     <string name="left_arrow"><![CDATA[<]]></string>
     <string name="right_arrow"><![CDATA[>]]></string>
     <string name="user_name">누구의 포도나무 인가요?</string>
