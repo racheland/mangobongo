@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
+import com.example.rachel.nicegrape.pin.CustomPinActivity;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
+import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
         final String string = PreferenceHelper.readData(IS_FIRST_RUN, this);
         if (!INITIAL_VALUE.equals(string)) {
-            final TitleNameDialog titleNameDialog = new TitleNameDialog();
+            final TitleNameDialog titleNameDialog = new TitleNameDialog("누구의 포도나무 인가요?");
 
             titleNameDialog.getBuilder(this).setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                 @Override
@@ -40,25 +42,29 @@ public class SplashActivity extends AppCompatActivity {
                     String userName = titleNameDialog.getEditText().getText().toString();
                     PreferenceHelper.writeData("userName", userName, SplashActivity.this);
                     userNameTextView.setText(userName);
+                    PreferenceHelper.writeData(IS_FIRST_RUN, INITIAL_VALUE, SplashActivity.this);
 
-                    String grapeName = userName;
-                    int grapeSize = 10;
-
-                    ArrayList<Sticker> stickers = new ArrayList<>();
-                    for (int i = 0; i < grapeSize; i++) {
-                        stickers.add(new Sticker(false, "", new Date()));
-                    }
-
-                    Grape grape = new Grape(grapeName, stickers);
-                    PreferenceHelper.addGrape(grape, SplashActivity.this);
+                    Intent intent = new Intent(SplashActivity.this, CustomPinActivity.class);
+                    intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK);
+                    startActivity(intent);
                 }
-            });
+            }).setCancelable(false);
+
+            String grapeName = "이름을 설정해주세요";
+            int grapeSize = 10;
+
+            ArrayList<Sticker> stickers = new ArrayList<>();
+            for (int i = 0; i < grapeSize; i++) {
+                stickers.add(new Sticker(false, "", new Date()));
+            }
+
+            Grape grape = new Grape(grapeName, stickers);
+            PreferenceHelper.addGrape(grape, SplashActivity.this);
 
             titleNameDialog.show(getSupportFragmentManager(), "TitleFragment");
         }
 
         userNameTextView.setText(PreferenceHelper.readData("userName",SplashActivity.this));
-        PreferenceHelper.writeData(IS_FIRST_RUN, INITIAL_VALUE, this);
     }
 
     public void onClickEnterButton(View view) {

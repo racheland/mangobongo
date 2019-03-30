@@ -1,10 +1,12 @@
 package com.example.rachel.nicegrape.sticker;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.rachel.nicegrape.R;
 import com.example.rachel.nicegrape.model.Grape;
 
 import java.util.List;
@@ -23,12 +25,26 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
     @NonNull
     @Override
     public GrapeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.setting_grape_title, null, false);
+        return new GrapeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GrapeViewHolder holder, int position) {
+        holder.grapeName.setText(grapeList.get(position).getTitle());
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

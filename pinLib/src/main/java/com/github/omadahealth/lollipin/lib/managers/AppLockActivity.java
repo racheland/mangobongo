@@ -350,6 +350,10 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
      */
     @Override
     public void onBackPressed() {
+        if (mType == AppLock.CONFIRM_PIN || mType == AppLock.UNLOCK_PIN) {
+            setResult(RESULT_CANCELED);
+            super.onBackPressed();
+        }
         if (getBackableTypes().contains(mType)) {
             if (AppLock.UNLOCK_PIN == getType()) {
                 mLockManager.getAppLock().setPinChallengeCancelled(true);
@@ -357,6 +361,7 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
                         .getInstance(this)
                         .sendBroadcast(new Intent().setAction(ACTION_CANCEL));
             }
+            setResult(RESULT_CANCELED);
             super.onBackPressed();
         }
     }
@@ -381,7 +386,7 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
      * @return an {@link List<Integer>} of {@link AppLock} types which are backable
      */
     public List<Integer> getBackableTypes() {
-        return Arrays.asList(AppLock.CHANGE_PIN, AppLock.DISABLE_PINLOCK);
+        return Arrays.asList(AppLock.CHANGE_PIN, AppLock.DISABLE_PINLOCK, AppLock.CONFIRM_PIN, AppLock.UNLOCK_PIN);
     }
 
     /**

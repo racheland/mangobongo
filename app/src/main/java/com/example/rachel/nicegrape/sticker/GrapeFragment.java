@@ -14,14 +14,26 @@ import android.widget.RelativeLayout;
 
 import com.example.rachel.nicegrape.GrapeTimelineActivity;
 import com.example.rachel.nicegrape.R;
+import com.example.rachel.nicegrape.SplashActivity;
 import com.example.rachel.nicegrape.model.Sticker;
+import com.example.rachel.nicegrape.pin.CustomPinActivity;
+import com.example.rachel.nicegrape.util.PreferenceHelper;
+import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
+import static android.app.Activity.RESULT_OK;
 
 @SuppressLint("ValidFragment")
 public class GrapeFragment extends Fragment {
@@ -30,6 +42,7 @@ public class GrapeFragment extends Fragment {
     public static final int GRAPE_TYPE_10 = 10;
     public static final int GRAPE_TYPE_20 = 20;
     public static final int GRAPE_TYPE_30 = 30;
+    public static final int REQUEST_CODE_PIN = 101;
 
     private ArrayList<Sticker> stickerList;
     private int grapeCount;
@@ -70,6 +83,9 @@ public class GrapeFragment extends Fragment {
                     @Override
                     public void run() {
                         if (view.getId() != R.id.grape_leaf) {
+                            if (stickerList.get(index).isActivate()) {
+                                ((ImageView)view).setImageDrawable(getResources().getDrawable(R.drawable.grape_1));
+                            }
                             view.setTag(stickerList.get(index++));
                             view.setOnDragListener(new DragListener());
                         }
@@ -129,8 +145,16 @@ public class GrapeFragment extends Fragment {
                     ((ImageView)v).setImageDrawable(normalShape);
                     break;
                 case DragEvent.ACTION_DROP:
-                    ((ImageView)v).setImageDrawable(enterShape);
-                    sticker.setActivate(true);
+                    if (!isDropped) {
+                        isDropped = true;
+                        currentSticker = sticker;
+                        currentStickerView = v;
+                        GrapeFragment.this.enterShape = enterShape;
+                        GrapeFragment.this.normalShape = normalShape;
+                        Intent intent = new Intent(getActivity(), CustomPinActivity.class);
+                        intent.putExtra(AppLock.EXTRA_TYPE, AppLock.UNLOCK_PIN);
+                        startActivityForResult(intent, REQUEST_CODE_PIN);
+                    }
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     break;
@@ -139,6 +163,28 @@ public class GrapeFragment extends Fragment {
             }
             return true;
         }
+    }
+
+    private boolean isDropped = false;
+    private View currentStickerView;
+    private Sticker currentSticker;
+    public Drawable enterShape;
+    public Drawable normalShape;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_PIN && resultCode == RESULT_OK) {
+            ((ImageView)currentStickerView).setImageDrawable(enterShape);
+            currentSticker.setActivate(true);
+            currentSticker.setCreateDate(new Date());
+        } else {
+            ((ImageView)currentStickerView).setImageDrawable(normalShape);
+            currentSticker.setActivate(false);
+        }
+
+        isDropped = false;
     }
 
     public interface GenericRunnable<T> {

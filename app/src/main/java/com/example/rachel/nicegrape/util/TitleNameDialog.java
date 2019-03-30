@@ -1,5 +1,6 @@
 package com.example.rachel.nicegrape.util;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.Context;
@@ -13,10 +14,18 @@ import com.example.rachel.nicegrape.R;
 
 import androidx.fragment.app.DialogFragment;
 
+@SuppressLint("ValidFragment")
 public class TitleNameDialog extends DialogFragment {
 
     private Builder builder;
     private EditText editText;
+
+    private String title;
+
+    @SuppressLint("ValidFragment")
+    public TitleNameDialog(String title) {
+        this.title = title;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -28,11 +37,6 @@ public class TitleNameDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.name_signin, null);
         editText = view.findViewById(R.id.username);
         builder.setView(view);
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                TitleNameDialog.this.getDialog().cancel();
-            }
-        });// Add action buttons
         return builder.create();
     }
 
@@ -40,6 +44,16 @@ public class TitleNameDialog extends DialogFragment {
         if (builder == null) {
            builder = new Builder(context);
         }
+        return builder;
+    }
+
+    public Builder setNegativeButton() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                TitleNameDialog.this.getDialog().cancel();
+            }
+        });// Add action buttons
+
         return builder;
     }
 

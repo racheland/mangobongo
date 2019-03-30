@@ -41,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
     private List<Grape> grapeList;
 
     @Override
+    public void onPause() {
+        super.onPause();
+        PreferenceHelper.writeGrapeList(grapeList, this);
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -54,31 +60,6 @@ public class MainActivity extends AppCompatActivity {
         stickerAddView = findViewById(R.id.add_grape_1);
 
         grapeList = PreferenceHelper.readGrape(this);
-
-//        grapeList.add(new Grape("나이키 신발", new ArrayList<Sticker>(){{
-//            for (int i=0; i<3; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
-//            }
-//            for (int i=0; i<3; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
-//            }
-//            for (int i=0; i<4; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
-//            }
-//        }}));
-//
-//        grapeList.add(new Grape("미니카", new ArrayList<Sticker>(){{
-//            for (int i=0; i<3; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
-//            }
-//            for (int i=0; i<3; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
-//            }
-//            for (int i=0; i<4; i++) {
-//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
-//            }
-//        }}));
-
 
         adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
         viewPager.setAdapter(adapter);
@@ -97,10 +78,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         onPageSelected(0);
-
-//        Intent intent = new Intent(MainActivity.this, CustomPinActivity.class);
-//        intent.putExtra(AppLock.EXTRA_TYPE, AppLock.UNLOCK_PIN);
-//        startActivityForResult(intent, REQUEST_CODE_ENABLE);
 
         viewPager.setPageTransformer(false, new FadePageTransformer());
         stickerAddView.setOnTouchListener(new DragTouchListener());
