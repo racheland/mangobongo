@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/grape_container"
         android:layout_width="257dp"
-        android:layout_height="439dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -38,8 +38,8 @@
             android:layout_marginTop="79dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="22dp"
@@ -47,8 +47,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="62dp"
@@ -57,8 +57,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -68,8 +68,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -88,24 +88,24 @@
             android:layout_marginTop="153dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="42dp"
                 android:layout_marginLeft="42dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="83dp"
                 android:layout_marginLeft="83dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="125dp"
                 android:layout_marginLeft="125dp"
@@ -113,15 +113,15 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="164dp"
                 android:layout_marginBottom="0dp"
@@ -138,24 +138,24 @@
             android:layout_marginTop="111dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="42dp"
                 android:layout_marginLeft="42dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="83dp"
                 android:layout_marginLeft="83dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="125dp"
                 android:layout_marginLeft="125dp"
@@ -163,15 +163,15 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="165dp"
@@ -188,8 +188,8 @@
             android:layout_marginTop="197dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -199,8 +199,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -210,8 +210,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
@@ -220,8 +220,8 @@
 
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="140dp"
                 android:layout_marginBottom="1dp"
@@ -239,8 +239,8 @@
             android:layout_marginTop="242dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -250,8 +250,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -261,8 +261,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
@@ -271,8 +271,8 @@
 
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="148dp"
                 android:layout_marginBottom="2dp"
@@ -289,8 +289,8 @@
             android:layout_marginTop="286dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -300,8 +300,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -311,8 +311,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
@@ -321,8 +321,8 @@
 
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="140dp"
                 android:layout_marginBottom="2dp"
@@ -338,8 +338,8 @@
             android:layout_marginTop="329dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -349,8 +349,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
@@ -360,8 +360,8 @@
                 android:src="@drawable/grape_basic_1" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="140dp"
                 android:layout_marginBottom="0dp"
@@ -370,8 +370,8 @@
         </RelativeLayout>
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
