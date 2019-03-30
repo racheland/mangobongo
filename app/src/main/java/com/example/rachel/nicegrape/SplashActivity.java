@@ -10,6 +10,9 @@ import com.example.rachel.nicegrape.model.Grape;
 import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +30,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         userNameTextView = findViewById(R.id.username);
 
