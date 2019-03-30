@@ -1,5 +1,7 @@
 package com.example.rachel.nicegrape.model;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +28,10 @@ public class Grape {
 
     public void setStickerList(ArrayList<Sticker> stickerList) {
         this.stickerList = stickerList;
+    }
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

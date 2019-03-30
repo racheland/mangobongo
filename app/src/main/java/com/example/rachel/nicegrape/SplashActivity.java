@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.rachel.nicegrape.util.NumGrapeDialog;
+import com.example.rachel.nicegrape.model.Grape;
+import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,8 +39,18 @@ public class SplashActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int id) {
                     String userName = titleNameDialog.getEditText().getText().toString();
                     PreferenceHelper.writeData("userName", userName, SplashActivity.this);
-
                     userNameTextView.setText(userName);
+
+                    String grapeName = userName;
+                    int grapeSize = 10;
+
+                    ArrayList<Sticker> stickers = new ArrayList<>();
+                    for (int i = 0; i < grapeSize; i++) {
+                        stickers.add(new Sticker(false, "", new Date()));
+                    }
+
+                    Grape grape = new Grape(grapeName, stickers);
+                    PreferenceHelper.addGrape(grape, SplashActivity.this);
                 }
             });
 
@@ -45,11 +59,7 @@ public class SplashActivity extends AppCompatActivity {
 
         userNameTextView.setText(PreferenceHelper.readData("userName",SplashActivity.this));
         PreferenceHelper.writeData(IS_FIRST_RUN, INITIAL_VALUE, this);
-
-
     }
-
-
 
     public void onClickEnterButton(View view) {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);

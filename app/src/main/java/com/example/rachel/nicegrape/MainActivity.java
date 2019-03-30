@@ -13,8 +13,11 @@ import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.example.rachel.nicegrape.util.NumGrapeDialog;
+import com.example.rachel.nicegrape.util.PreferenceHelper;
+import com.github.omadahealth.lollipin.lib.PinActivity;
 import com.rd.PageIndicatorView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,31 +53,31 @@ public class MainActivity extends AppCompatActivity {
         titleView = findViewById(R.id.main_purpose_txtv);
         stickerAddView = findViewById(R.id.add_grape_1);
 
-        grapeList = new ArrayList<>();
+        grapeList = PreferenceHelper.readGrape(this);
 
-        grapeList.add(new Grape("나이키 신발", new ArrayList<Sticker>(){{
-            for (int i=0; i<3; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
-            }
-            for (int i=0; i<3; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
-            }
-            for (int i=0; i<4; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
-            }
-        }}));
-
-        grapeList.add(new Grape("미니카", new ArrayList<Sticker>(){{
-            for (int i=0; i<3; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
-            }
-            for (int i=0; i<3; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
-            }
-            for (int i=0; i<4; i++) {
-                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
-            }
-        }}));
+//        grapeList.add(new Grape("나이키 신발", new ArrayList<Sticker>(){{
+//            for (int i=0; i<3; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
+//            }
+//            for (int i=0; i<3; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
+//            }
+//            for (int i=0; i<4; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
+//            }
+//        }}));
+//
+//        grapeList.add(new Grape("미니카", new ArrayList<Sticker>(){{
+//            for (int i=0; i<3; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 24, i + 1, 0)));
+//            }
+//            for (int i=0; i<3; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 25, i + 1, 0)));
+//            }
+//            for (int i=0; i<4; i++) {
+//                add(new Sticker(false, "page<1>" + i, new Date(2019, 3, 26, i + 1, 0)));
+//            }
+//        }}));
 
 
         adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
@@ -121,16 +124,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickAddGrape (View view) {
-        NumGrapeDialog numGrapeDialog = new NumGrapeDialog();
+        final NumGrapeDialog numGrapeDialog = new NumGrapeDialog();
         numGrapeDialog.getBuilder(this).setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                String grapeName = numGrapeDialog.getEditText().getText().toString();
+                int grapeSize = Integer.parseInt(numGrapeDialog.getNumberPicker().getDisplayedValues()[numGrapeDialog.getNumberPicker().getValue()]);
+
+                ArrayList<Sticker> stickers = new ArrayList<>();
+                for (int i = 0; i < grapeSize; i++) {
+                    stickers.add(new Sticker(false, "", new Date()));
+                }
+
+                Grape grape = new Grape(grapeName, stickers);
+                PreferenceHelper.addGrape(grape, MainActivity.this);
+                grapeList.add(grape);
+                adapter.notifyDataSetChanged();
             }
         });
 
         numGrapeDialog.show(getSupportFragmentManager(), "NumGrapeDialog");
     }
-
 
     private void onPageSelected(int position) {
         pageIndicatorView.setSelection(position);

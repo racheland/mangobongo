@@ -29,7 +29,7 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
-        android:hint="나이키 신발"/>
+        android:hint="여기에 이름을 입력 해주세요."/>
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
