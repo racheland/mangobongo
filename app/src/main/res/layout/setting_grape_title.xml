@@ -17,7 +17,7 @@
 
         <ImageView
             android:layout_toLeftOf="@id/delete"
-            android:id="@+id/edit"
+            android:id="@+id/grape_title_edit"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:paddingLeft="10dp"

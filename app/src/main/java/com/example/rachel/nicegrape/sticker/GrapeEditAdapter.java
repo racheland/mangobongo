@@ -1,5 +1,7 @@
 package com.example.rachel.nicegrape.sticker;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +10,14 @@ import android.widget.TextView;
 
 import com.example.rachel.nicegrape.R;
 import com.example.rachel.nicegrape.model.Grape;
+import com.example.rachel.nicegrape.setting.SettingTitleActivity;
+import com.example.rachel.nicegrape.util.PreferenceHelper;
+import com.example.rachel.nicegrape.util.TitleNameDialog;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.GrapeViewHolder> {
@@ -30,19 +36,20 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GrapeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GrapeViewHolder holder, final int position) {
         holder.grapeName.setText(grapeList.get(position).getTitle());
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                grapeList.remove(position);
+//                PreferenceHelper.
             }
         });
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onClickEdit(v, position);
             }
         });
     }
@@ -59,7 +66,27 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
 
         public GrapeViewHolder(@NonNull View itemView) {
             super(itemView);
+            grapeName = itemView.findViewById(R.id.content);
+            btnEdit = itemView.findViewById(R.id.grape_title_edit);
+            btnDelete = itemView.findViewById(R.id.delete);
         }
     }
+
+    public void onClickEdit(final View view, final int index) {
+        final TitleNameDialog grapeTitleEdit = new TitleNameDialog("포도 제목을 설정해주세요!");
+        grapeTitleEdit.getBuilder(view.getContext()).setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                String grapeTitle = grapeTitleEdit.getEditText().getText().toString();
+                Grape grape = grapeList.get(index);
+                grape.setTitle(grapeTitle);
+                PreferenceHelper.writeGrape(index, grape, view.getContext());
+                notifyDataSetChanged();
+            }
+        }).setCancelable(false);
+
+        grapeTitleEdit.show(((AppCompatActivity)view.getContext()).getSupportFragmentManager(), "TitleFragment");
+    }
+
 
 }

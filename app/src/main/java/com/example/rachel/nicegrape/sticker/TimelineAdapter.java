@@ -50,7 +50,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.GrapeV
             super(itemView);
 
             grapeName = itemView.findViewById(R.id.content);
-            btnEdit = itemView.findViewById(R.id.edit);
+            btnEdit = itemView.findViewById(R.id.grape_title_edit);
             btnDelete = itemView.findViewById(R.id.delete);
         }
     }

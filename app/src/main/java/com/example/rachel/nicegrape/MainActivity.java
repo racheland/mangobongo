@@ -83,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
         stickerAddView.setOnTouchListener(new DragTouchListener());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        grapeList = PreferenceHelper.readGrape(this);
+        adapter.notifyDataSetChanged();
+
+        onPageSelected(viewPager.getCurrentItem());
+    }
+
     public void onClickSettingButton (View view) {
         Intent intent = new Intent(MainActivity.this, SettingActivity.class);
         startActivity(intent);

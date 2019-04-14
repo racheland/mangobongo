@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.rachel.nicegrape.R;
 
@@ -36,6 +37,7 @@ public class TitleNameDialog extends DialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         View view = inflater.inflate(R.layout.name_signin, null);
         editText = view.findViewById(R.id.username);
+        ((TextView)view.findViewById(R.id.title)).setText(title);
         builder.setView(view);
         return builder.create();
     }
