@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rachel.nicegrape">
+    package="com.onhand.rachel.nicegrape">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.onhand.rachel.nicegrape.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +17,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".GrapeTimelineActivity"/>
-        <activity android:name=".setting.SettingActivity"/>
-        <activity android:name=".pin.CustomPinActivity"/>
-        <activity android:name=".setting.SettingOpenLicense"/>
-        <activity android:name=".setting.SettingTitleActivity"/>
+        <activity android:name="com.onhand.rachel.nicegrape.MainActivity"/>
+        <activity android:name="com.onhand.rachel.nicegrape.GrapeTimelineActivity"/>
+        <activity android:name="com.onhand.rachel.nicegrape.setting.SettingActivity"/>
+        <activity android:name="com.onhand.rachel.nicegrape.pin.CustomPinActivity"/>
+        <activity android:name="com.onhand.rachel.nicegrape.setting.SettingOpenLicense"/>
+        <activity android:name="com.onhand.rachel.nicegrape.setting.SettingTitleActivity"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
