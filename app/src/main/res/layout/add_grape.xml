@@ -9,15 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="center"
-        android:textSize="20dp"
-        android:text="@string/add_grape" />
+        android:textSize="25dp"
+        android:text="@string/add_grape"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/success_color"/>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="center"
-        android:text="@string/grape_name" />
+        android:text="@string/grape_name"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:id="@+id/grape_name"
@@ -25,11 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
-        android:hint="여기에 이름을 입력 해주세요."/>
+        android:hint="여기에 이름을 입력 해주세요."
+        android:textSize="20dp"/>
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,15 +50,17 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:text="@string/num_grape"
-        />
+        android:textColor="@color/success_color"/>
+
     <NumberPicker
         android:id="@+id/number_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_width="163dp"
+        android:layout_height="120dp"
         android:layout_below="@id/tv"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
 </RelativeLayout>
 
 </LinearLayout>
