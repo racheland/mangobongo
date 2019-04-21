@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
             viewPager.setAdapter(adapter);
+            onPageSelected(grapeList.size() - 1);
         }
     }
 

@@ -8,18 +8,13 @@ import com.example.rachel.nicegrape.sticker.TimelineAdapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Function;
 import xyz.sangcomz.stickytimelineview.RecyclerSectionItemDecoration;
 import xyz.sangcomz.stickytimelineview.TimeLineRecyclerView;
 import xyz.sangcomz.stickytimelineview.model.SectionInfo;
@@ -67,7 +62,7 @@ public class GrapeTimelineActivity extends AppCompatActivity {
 
             @Override
             public boolean isSection(int position) {
-                return singerList.get(position).getCreateDate().getDate() != singerList.get(position - 1).getCreateDate().getDate();
+                return true;
             }
         };
     }
