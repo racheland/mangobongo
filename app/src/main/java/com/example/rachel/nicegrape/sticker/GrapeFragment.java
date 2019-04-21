@@ -1,6 +1,7 @@
 package com.example.rachel.nicegrape.sticker;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.example.rachel.nicegrape.SplashActivity;
 import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
+import com.example.rachel.nicegrape.util.TitleNameDialog;
 import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
@@ -176,9 +178,18 @@ public class GrapeFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_PIN && resultCode == RESULT_OK) {
-            ((ImageView)currentStickerView).setImageDrawable(enterShape);
-            currentSticker.setActivate(true);
-            currentSticker.setCreateDate(new Date());
+            final TitleNameDialog titleNameDialog = new TitleNameDialog("칭찬 해주세요!");
+
+            titleNameDialog.getBuilder(getActivity()).setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    String contentString = titleNameDialog.getEditText().getText().toString();
+                    ((ImageView)currentStickerView).setImageDrawable(enterShape);
+                    currentSticker.setActivate(true);
+                    currentSticker.setContent(contentString);
+                    currentSticker.setCreateDate(new Date());
+                }
+            }).setCancelable(false);
         } else {
             ((ImageView)currentStickerView).setImageDrawable(normalShape);
             currentSticker.setActivate(false);

@@ -14,10 +14,8 @@ import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.example.rachel.nicegrape.util.NumGrapeDialog;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
-import com.github.omadahealth.lollipin.lib.PinActivity;
 import com.rd.PageIndicatorView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         PreferenceHelper.writeGrapeList(grapeList, this);
-    }
+        }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -124,9 +122,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Grape grape = new Grape(grapeName, stickers);
-                PreferenceHelper.addGrape(grape, MainActivity.this);
                 grapeList.add(grape);
+                PreferenceHelper.writeGrapeList(grapeList, MainActivity.this);
                 adapter.notifyDataSetChanged();
+                onPageSelected(viewPager.getCurrentItem());
             }
         });
 

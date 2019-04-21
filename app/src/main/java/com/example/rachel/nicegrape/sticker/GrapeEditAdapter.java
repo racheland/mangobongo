@@ -42,7 +42,7 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
             @Override
             public void onClick(View v) {
                 grapeList.remove(position);
-//                PreferenceHelper.
+                PreferenceHelper.writeGrapeList(grapeList, v.getContext());
             }
         });
 
@@ -80,7 +80,7 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
                 String grapeTitle = grapeTitleEdit.getEditText().getText().toString();
                 Grape grape = grapeList.get(index);
                 grape.setTitle(grapeTitle);
-                PreferenceHelper.writeGrape(index, grape, view.getContext());
+                PreferenceHelper.writeGrapeList(grapeList, view.getContext());
                 notifyDataSetChanged();
             }
         }).setCancelable(false);

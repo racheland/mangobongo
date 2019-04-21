@@ -13,6 +13,6 @@ public class GrapeApplication extends Application {
         super.onCreate();
 
         LockManager<CustomPinActivity> lockManager = LockManager.getInstance();
-        lockManager.getAppLock().setLogoId(R.drawable.grape_1);
+//        lockManager.getAppLock().setLogoId(R.drawable.grape_1);
     }
 }

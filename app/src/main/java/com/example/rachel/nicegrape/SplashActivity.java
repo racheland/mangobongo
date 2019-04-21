@@ -66,8 +66,8 @@ public class SplashActivity extends AppCompatActivity {
                 stickers.add(new Sticker(false, "", new Date()));
             }
 
-            Grape grape = new Grape(grapeName, stickers);
-            PreferenceHelper.addGrape(grape, SplashActivity.this);
+            final Grape grape = new Grape(grapeName, stickers);
+            PreferenceHelper.writeGrapeList(new ArrayList<Grape>() {{add(grape);}}, this);
 
             titleNameDialog.show(getSupportFragmentManager(), "TitleFragment");
         }

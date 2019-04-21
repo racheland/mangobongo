@@ -21,7 +21,6 @@
         <activity android:name=".GrapeTimelineActivity"/>
         <activity android:name=".setting.SettingActivity"/>
         <activity android:name=".pin.CustomPinActivity"/>
-        <activity android:name=".setting.SettingCalendar"/>
         <activity android:name=".setting.SettingOpenLicense"/>
         <activity android:name=".setting.SettingTitleActivity"/>
 
