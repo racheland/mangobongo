@@ -1,6 +1,7 @@
 package com.example.rachel.nicegrape.sticker;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,13 +37,25 @@ public class GrapeEditAdapter extends RecyclerView.Adapter<GrapeEditAdapter.Grap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GrapeViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final GrapeViewHolder holder, final int position) {
         holder.grapeName.setText(grapeList.get(position).getTitle());
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                grapeList.remove(position);
-                PreferenceHelper.writeGrapeList(grapeList, v.getContext());
+            public void onClick(final View v) {
+                new AlertDialog.Builder(holder.btnDelete.getContext()).setCancelable(true)
+                        .setTitle(holder.btnEdit.getContext().getString(R.string.grape_title_change))
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {}
+                        })
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        grapeList.remove(position);
+                        PreferenceHelper.writeGrapeList(grapeList, v.getContext());
+                        notifyDataSetChanged();
+                    }
+                }).show();
             }
         });
 

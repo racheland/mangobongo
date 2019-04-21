@@ -27,5 +27,6 @@
     <string name="activity_dialog_decline">CANCEL</string>
     <string name="activity_dialog_content">Tap \'OK\' to log out, when you log back in you\'ll be able to create a new Pincode.\n\nIf you remember your Pincode, tap \'Cancel\' to go back.</string>
     <string name="activity_appcompat_message">I am a PinCompatActivity!</string>
+    <string name="grape_title_change">포도나무를 삭제할까요?</string>
 
 </resources>

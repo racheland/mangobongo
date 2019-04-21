@@ -3,6 +3,7 @@ package com.example.rachel.nicegrape;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -98,7 +99,13 @@ public class MainActivity extends AppCompatActivity {
         grapeList = PreferenceHelper.readGrape(this);
         adapter.notifyDataSetChanged();
 
-        onPageSelected(viewPager.getCurrentItem());
+        if (grapeList.size() - 1 >= viewPager.getCurrentItem()) {
+            onPageSelected(viewPager.getCurrentItem());
+        } else {
+            adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
+            viewPager.setAdapter(adapter);
+            onPageSelected(grapeList.size() - 1);
+        }
     }
 
     public void onClickSettingButton(View view) {
@@ -123,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         numGrapeDialog.getBuilder(this).setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                int currPosition = viewPager.getCurrentItem();
                 String grapeName = numGrapeDialog.getEditText().getText().toString();
                 int grapeSize = Integer.parseInt(numGrapeDialog.getNumberPicker().getDisplayedValues()[numGrapeDialog.getNumberPicker().getValue()]);
 
@@ -134,9 +142,15 @@ public class MainActivity extends AppCompatActivity {
                 Grape grape = new Grape(grapeName, stickers);
                 grapeList.add(grape);
                 PreferenceHelper.writeGrapeList(grapeList, MainActivity.this);
-                grapeList = PreferenceHelper.readGrape(MainActivity.this);
+
                 adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
                 viewPager.setAdapter(adapter);
+
+                if (grapeList.size() - 1 >= currPosition) {
+                    viewPager.setCurrentItem(currPosition);
+                } else {
+                    viewPager.setCurrentItem(grapeList.size() - 1);
+                }
             }
         });
 
@@ -158,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
             leftArrow.setVisibility(View.VISIBLE);
         }
 
-        titleView.setText(grapeList.get(position).getTitle());
-
+        titleView.setText("  " + grapeList.get(position).getTitle() + "  ");
+        titleView.setPaintFlags(titleView .getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
     }
 
     private final class DragTouchListener implements View.OnTouchListener {

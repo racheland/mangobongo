@@ -10,30 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 
 import com.example.rachel.nicegrape.GrapeTimelineActivity;
 import com.example.rachel.nicegrape.R;
-import com.example.rachel.nicegrape.SplashActivity;
 import com.example.rachel.nicegrape.model.Sticker;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
-import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
 import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -48,6 +39,8 @@ public class GrapeFragment extends Fragment {
 
     private ArrayList<Sticker> stickerList;
     private int grapeCount;
+
+    private View rootView;
 
     public GrapeFragment(ArrayList<Sticker> stickerList) {
         this.grapeCount = stickerList.size();
@@ -88,7 +81,7 @@ public class GrapeFragment extends Fragment {
                             if (stickerList.get(index).isActivate()) {
                                 ((ImageView)view).setImageDrawable(getResources().getDrawable(R.drawable.grape_1));
                             }
-                            view.setTag(stickerList.get(index++));
+                            view.setTag(index++);
                             view.setOnDragListener(new DragListener());
                         }
                     }
@@ -105,6 +98,7 @@ public class GrapeFragment extends Fragment {
             }
         });
 
+        rootView = view;
         return view;
     }
 
@@ -131,7 +125,7 @@ public class GrapeFragment extends Fragment {
 
         @Override
         public boolean onDrag(View v, DragEvent event) {
-            Sticker sticker = ((Sticker)v.getTag());
+            Sticker sticker = stickerList.get(Integer.parseInt(v.getTag().toString()));
             if (sticker.isActivate()) {
                 return true;
             }
@@ -144,10 +138,13 @@ public class GrapeFragment extends Fragment {
                     ((ImageView)v).setImageDrawable(enterShape);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
-                    ((ImageView)v).setImageDrawable(normalShape);
+                    if (!sticker.isActivate()) {
+                        ((ImageView)v).setImageDrawable(normalShape);
+                    }
                     break;
                 case DragEvent.ACTION_DROP:
-                    if (!isDropped) {
+                    if (!isDropped && !sticker.isActivate()) {
+                        currentStickerIndex = Integer.parseInt(v.getTag().toString());
                         isDropped = true;
                         currentSticker = sticker;
                         currentStickerView = v;
@@ -170,6 +167,7 @@ public class GrapeFragment extends Fragment {
     private boolean isDropped = false;
     private View currentStickerView;
     private Sticker currentSticker;
+    private int currentStickerIndex;
     public Drawable enterShape;
     public Drawable normalShape;
 
@@ -178,11 +176,14 @@ public class GrapeFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_PIN && resultCode == RESULT_OK) {
-            final TitleNameDialog titleNameDialog = new TitleNameDialog("칭찬 해주세요!");
+            final TitleNameDialog titleNameDialog = new TitleNameDialog("칭찬 내용을 입력하세요!");
 
             titleNameDialog.getBuilder(getActivity()).setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
+                    currentSticker = stickerList.get(Integer.parseInt(String.valueOf(currentStickerIndex)));
+                    currentStickerView = rootView.findViewWithTag(Integer.parseInt(String.valueOf(currentStickerIndex)));
+
                     String contentString = titleNameDialog.getEditText().getText().toString();
                     ((ImageView)currentStickerView).setImageDrawable(enterShape);
                     currentSticker.setActivate(true);
@@ -190,7 +191,12 @@ public class GrapeFragment extends Fragment {
                     currentSticker.setCreateDate(new Date());
                 }
             }).setCancelable(false);
+
+            titleNameDialog.show(getActivity().getSupportFragmentManager(), "TitleFragment");
         } else {
+            currentSticker = stickerList.get(Integer.parseInt(String.valueOf(currentStickerIndex)));
+            currentStickerView = getView().findViewWithTag(Integer.parseInt(String.valueOf(currentStickerIndex)));
+
             ((ImageView)currentStickerView).setImageDrawable(normalShape);
             currentSticker.setActivate(false);
         }
