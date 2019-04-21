@@ -124,8 +124,9 @@ public class MainActivity extends AppCompatActivity {
                 Grape grape = new Grape(grapeName, stickers);
                 grapeList.add(grape);
                 PreferenceHelper.writeGrapeList(grapeList, MainActivity.this);
-                adapter.notifyDataSetChanged();
-                onPageSelected(viewPager.getCurrentItem());
+                grapeList = PreferenceHelper.readGrape(MainActivity.this);
+                adapter = new PagerAdapter(getSupportFragmentManager(), grapeList);
+                viewPager.setAdapter(adapter);
             }
         });
 
