@@ -9,6 +9,9 @@ import android.widget.Switch;
 import com.example.rachel.nicegrape.R;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
 import com.github.omadahealth.lollipin.lib.managers.AppLock;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import static com.example.rachel.nicegrape.sticker.GrapeFragment.REQUEST_CODE_PIN;
 
@@ -17,6 +20,12 @@ public class SettingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     public void onClickBackMain (View view){

@@ -11,6 +11,9 @@ import com.example.rachel.nicegrape.sticker.GrapeEditAdapter;
 import com.example.rachel.nicegrape.sticker.TimelineAdapter;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
 import com.example.rachel.nicegrape.util.TitleNameDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
 
@@ -29,6 +32,11 @@ public class SettingTitleActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_title);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         grapeList = PreferenceHelper.readGrape(this);
         recyclerView = findViewById(R.id.recycler_view);

@@ -14,6 +14,9 @@ import com.example.rachel.nicegrape.setting.SettingActivity;
 import com.example.rachel.nicegrape.sticker.PagerAdapter;
 import com.example.rachel.nicegrape.util.NumGrapeDialog;
 import com.example.rachel.nicegrape.util.PreferenceHelper;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
@@ -42,12 +45,19 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         PreferenceHelper.writeGrapeList(grapeList, this);
-        }
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         viewPager = findViewById(R.id.view_pager);
         pageIndicatorView = findViewById(R.id.page_indicator);
@@ -91,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         onPageSelected(viewPager.getCurrentItem());
     }
 
-    public void onClickSettingButton (View view) {
+    public void onClickSettingButton(View view) {
         Intent intent = new Intent(MainActivity.this, SettingActivity.class);
         startActivity(intent);
     }
@@ -108,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickAddGrape (View view) {
+    public void onClickAddGrape(View view) {
         final NumGrapeDialog numGrapeDialog = new NumGrapeDialog();
         numGrapeDialog.getBuilder(this).setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
@@ -170,13 +180,11 @@ public class MainActivity extends AppCompatActivity {
 
             if (position < -1 || position > 1) {
                 view.setAlpha(0);
-            }
-            else if (position <= 0 || position <= 1) {
+            } else if (position <= 0 || position <= 1) {
                 // Calculate alpha. Position is decimal in [-1,0] or [0,1]
                 float alpha = (position <= 0) ? position + 1 : 1 - position;
                 view.setAlpha(alpha);
-            }
-            else if (position == 0) {
+            } else if (position == 0) {
                 view.setAlpha(1);
 
             }
