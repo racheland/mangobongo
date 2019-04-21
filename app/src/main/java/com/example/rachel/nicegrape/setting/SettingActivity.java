@@ -1,17 +1,22 @@
 package com.example.rachel.nicegrape.setting;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Switch;
 
 import com.example.rachel.nicegrape.R;
 import com.example.rachel.nicegrape.pin.CustomPinActivity;
+import com.example.rachel.nicegrape.util.TitleNameDialog;
 import com.github.omadahealth.lollipin.lib.managers.AppLock;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+import java.util.Date;
 
 import static com.example.rachel.nicegrape.sticker.GrapeFragment.REQUEST_CODE_PIN;
 
@@ -20,6 +25,10 @@ public class SettingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
+
+        Intent intent = new Intent(this, CustomPinActivity.class);
+        intent.putExtra(AppLock.EXTRA_TYPE, AppLock.UNLOCK_PIN);
+        startActivityForResult(intent, REQUEST_CODE_PIN);
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
         AdView mAdView = findViewById(R.id.adView);
@@ -53,5 +62,12 @@ public class SettingActivity extends Activity {
         startActivityForResult(intent, REQUEST_CODE_PIN);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == REQUEST_CODE_PIN && resultCode != RESULT_OK) {
+            finish();
+        }
+    }
 }

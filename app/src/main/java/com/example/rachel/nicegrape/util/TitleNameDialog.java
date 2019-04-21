@@ -39,6 +39,7 @@ public class TitleNameDialog extends DialogFragment {
         editText = view.findViewById(R.id.username);
         ((TextView)view.findViewById(R.id.title)).setText(title);
         builder.setView(view);
+        editText.requestFocus();
         return builder.create();
     }
 
