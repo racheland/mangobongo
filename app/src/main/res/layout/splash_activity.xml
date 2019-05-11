@@ -68,7 +68,7 @@
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+        ads:adUnitId="ca-app-pub-2815505421993509/1990159701"/>
 
 
 
