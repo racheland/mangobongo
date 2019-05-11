@@ -12,15 +12,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.github.omadahealth.lollipin.lib.managers.AppLock;
+import com.onhand.rachel.nicegrape.GoodJobActivity;
 import com.onhand.rachel.nicegrape.GrapeTimelineActivity;
+import com.onhand.rachel.nicegrape.MainActivity;
 import com.onhand.rachel.nicegrape.R;
+import com.onhand.rachel.nicegrape.model.Grape;
 import com.onhand.rachel.nicegrape.model.Sticker;
 import com.onhand.rachel.nicegrape.pin.CustomPinActivity;
+import com.onhand.rachel.nicegrape.util.PreferenceHelper;
 import com.onhand.rachel.nicegrape.util.TitleNameDialog;
-import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,20 +36,32 @@ import static android.app.Activity.RESULT_OK;
 @SuppressLint("ValidFragment")
 public class GrapeFragment extends Fragment {
 
-    public static final int GRAPE_TYPE_5 = 5;
-    public static final int GRAPE_TYPE_10 = 10;
+    public static final int GRAPE_TYPE_5 = 5;public static final int GRAPE_TYPE_10 = 10;
     public static final int GRAPE_TYPE_20 = 20;
     public static final int GRAPE_TYPE_30 = 30;
     public static final int REQUEST_CODE_PIN = 101;
 
-    private ArrayList<Sticker> stickerList;
+    public static List<Grape> grapeList;
+    private int position;
+    public ArrayList<Sticker> stickerList;
     private int grapeCount;
 
     private View rootView;
 
-    public GrapeFragment(ArrayList<Sticker> stickerList) {
-        this.grapeCount = stickerList.size();
-        this.stickerList = stickerList;
+    public GrapeFragment(List<Grape> grapeList, int position) {
+        this.grapeCount = grapeList.get(position).getStickerList().size();
+        this.stickerList = grapeList.get(position).getStickerList();
+        this.grapeList = grapeList;
+        this.position = position;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        PreferenceHelper.writeGrapeList(grapeList, getContext());
+        ((MainActivity)getActivity()).refresh();
+        refreshViews(rootView);
     }
 
     @Nullable
@@ -69,9 +86,15 @@ public class GrapeFragment extends Fragment {
                 break;
         }
 
+        refreshViews(view);
+        return view;
+    }
+
+    public void refreshViews(View view) {
         RelativeLayout parent = view.findViewById(R.id.grape_container);
         recursiveLoopChildren(parent, new GenericRunnable<View>() {
             int index = 0;
+
             @Override
             public void run(final View view) {
                 view.post(new Runnable() {
@@ -79,7 +102,9 @@ public class GrapeFragment extends Fragment {
                     public void run() {
                         if (view.getId() != R.id.grape_leaf) {
                             if (stickerList.get(index).isActivate()) {
-                                ((ImageView)view).setImageDrawable(getResources().getDrawable(R.drawable.grape_1));
+                                ((ImageView) view).setImageDrawable(getResources().getDrawable(R.drawable.grape_1));
+                            } else {
+                                ((ImageView) view).setImageDrawable(getResources().getDrawable(R.drawable.grape_basic_1));
                             }
                             view.setTag(index++);
                             view.setOnDragListener(new DragListener());
@@ -91,7 +116,7 @@ public class GrapeFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getContext(), GrapeTimelineActivity.class);
-                        intent.putParcelableArrayListExtra(GrapeTimelineActivity.KEY_STICKER_LIST, stickerList);
+                        intent.putExtra(GrapeTimelineActivity.KEY_STICKER_INDEX, position);
                         startActivity(intent);
                     }
                 });
@@ -99,7 +124,6 @@ public class GrapeFragment extends Fragment {
         });
 
         rootView = view;
-        return view;
     }
 
     public void recursiveLoopChildren(ViewGroup parent, GenericRunnable<View> runnable) {
@@ -189,6 +213,23 @@ public class GrapeFragment extends Fragment {
                     currentSticker.setActivate(true);
                     currentSticker.setContent(contentString);
                     currentSticker.setCreateDate(new Date());
+
+                    PreferenceHelper.writeGrapeList(grapeList, getContext());
+                    ((MainActivity)getActivity()).refresh();
+
+                    int count = 0;
+                    List<Sticker> stickers = grapeList.get(position).getStickerList();
+                    for (int index = 0; index <stickers.size(); index++) {
+                        if (!stickers.get(index).isActivate()) {
+                            return;
+                        }
+                        count++;
+                    }
+
+                    if (count == stickers.size()) {
+                        Intent intent = new Intent(getContext(), GoodJobActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }).setCancelable(false);
 

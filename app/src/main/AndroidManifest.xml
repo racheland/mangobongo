@@ -23,6 +23,7 @@
         <activity android:name="com.onhand.rachel.nicegrape.pin.CustomPinActivity"/>
         <activity android:name="com.onhand.rachel.nicegrape.setting.SettingOpenLicense"/>
         <activity android:name="com.onhand.rachel.nicegrape.setting.SettingTitleActivity"/>
+        <activity android:name=".GoodJobActivity"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

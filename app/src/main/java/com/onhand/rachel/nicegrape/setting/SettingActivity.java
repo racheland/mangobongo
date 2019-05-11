@@ -25,7 +25,7 @@ public class SettingActivity extends Activity {
         intent.putExtra(AppLock.EXTRA_TYPE, AppLock.UNLOCK_PIN);
         startActivityForResult(intent, REQUEST_CODE_PIN);
 
-        MobileAds.initialize(this, "ca-app-pub-2815505421993509/1990159701");
+        MobileAds.initialize(this, "ca-app-pub-2815505421993509~3739900233");
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

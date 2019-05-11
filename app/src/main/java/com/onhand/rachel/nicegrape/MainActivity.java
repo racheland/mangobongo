@@ -9,15 +9,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.onhand.rachel.nicegrape.model.Grape;
 import com.onhand.rachel.nicegrape.model.Sticker;
 import com.onhand.rachel.nicegrape.setting.SettingActivity;
 import com.onhand.rachel.nicegrape.sticker.PagerAdapter;
 import com.onhand.rachel.nicegrape.util.NumGrapeDialog;
 import com.onhand.rachel.nicegrape.util.PreferenceHelper;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
@@ -53,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        MobileAds.initialize(this, "ca-app-pub-2815505421993509/1990159701");
+        MobileAds.initialize(this, "ca-app-pub-2815505421993509~3739900233");
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setPageTransformer(false, new FadePageTransformer());
         stickerAddView.setOnTouchListener(new DragTouchListener());
+    }
+
+    public void refresh() {
+        grapeList = PreferenceHelper.readGrape(this);
+        adapter.notifyDataSetChanged();
     }
 
     @Override

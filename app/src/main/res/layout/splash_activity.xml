@@ -64,10 +64,10 @@
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        ads:adSize="SMART_BANNER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-2815505421993509/1990159701"/>
 
 

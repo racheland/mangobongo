@@ -19,7 +19,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new GrapeFragment(grapeList.get(position).getStickerList());
+        return new GrapeFragment(grapeList, position);
     }
 
     @Override

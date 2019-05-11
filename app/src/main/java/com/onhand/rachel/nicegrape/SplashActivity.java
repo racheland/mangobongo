@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.omadahealth.lollipin.lib.managers.AppLock;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.onhand.rachel.nicegrape.model.Grape;
 import com.onhand.rachel.nicegrape.model.Sticker;
 import com.onhand.rachel.nicegrape.pin.CustomPinActivity;
 import com.onhand.rachel.nicegrape.util.PreferenceHelper;
 import com.onhand.rachel.nicegrape.util.TitleNameDialog;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.github.omadahealth.lollipin.lib.managers.AppLock;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
 
-        MobileAds.initialize(this, "ca-app-pub-2815505421993509/1990159701");
+        MobileAds.initialize(this, "ca-app-pub-2815505421993509~3739900233");
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

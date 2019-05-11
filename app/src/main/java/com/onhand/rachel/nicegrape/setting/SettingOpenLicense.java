@@ -3,6 +3,10 @@ package com.onhand.rachel.nicegrape.setting;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.RelativeLayout;
 
 import com.onhand.rachel.nicegrape.R;
 import com.google.android.gms.ads.AdRequest;
@@ -17,11 +21,15 @@ public class SettingOpenLicense extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_open_license);
 
-        MobileAds.initialize(this, "cca-app-pub-2815505421993509/1990159701");
+        MobileAds.initialize(this, "ca-app-pub-2815505421993509~3739900233");
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
+        WebView webView = findViewById(R.id.web_view);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webView.loadUrl("file:///android_asset/license.html");
     }
 
     public void onClickBackSetting (View view){
