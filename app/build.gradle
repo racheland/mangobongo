@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.github.sangcomz:StickyTimeLine:v0.0.20'
 
     //ad mob
-    implementation 'com.google.android.gms:play-services-ads:17.1.1'
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
 
     //애니메이션 라이브러리
     implementation 'com.airbnb.android:lottie:2.7.0'
