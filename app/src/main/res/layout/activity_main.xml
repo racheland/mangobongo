@@ -59,8 +59,6 @@
         android:layout_centerHorizontal="true"
         android:layout_width="250dp"
         android:layout_height="400dp" />
-    // 센터 표현하는거 추가 고민 필요
-
 
     <com.rd.PageIndicatorView
         android:id="@+id/page_indicator"
